@@ -1,0 +1,260 @@
+<div class="container mt-3">
+  <h3>Cadastro Manual</h3>
+  <div class="row justify-content-end">
+    <div class="col-4">
+      <div class="row justify-content-between">
+        <div class="col">
+          <button class="btn btn-primary w-100" (click)="onTitleSubmit()">
+            Novo Título
+          </button>
+        </div>
+        <div class="col">
+          <button class="btn btn-danger w-100" (click)="cancelTitle()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="financialReleaseForm">
+    <div class="row mt-3">
+      <div class="col-2">
+        <label for="cnpj">CNPJ</label>
+        <input
+          id="cnpj"
+          type="text"
+          class="form-control"
+          formControlName="cnpj"
+          placeholder="Digite um CNPJ"
+          mask="00.000.000/0000-00"
+        />
+      </div>
+      <div class="col-2">
+        <label for="nome">Nome do Sacado</label>
+        <input
+          id="nome"
+          type="text"
+          class="form-control"
+          formControlName="name"
+          placeholder="Digite o nome do sacado"
+        />
+      </div>
+      <div class="col-2">
+        <label for="telefone">Telefone do Sacado</label>
+        <input
+          id="telefone"
+          type="text"
+          class="form-control"
+          formControlName="phone"
+          placeholder="(xx) xxxxx-xxxx"
+          mask="(00) 00000-0000"
+        />
+      </div>
+      <div class="col-2">
+        <label for="cep">CEP</label>
+        <input
+          id="cep"
+          type="text"
+          class="form-control"
+          formControlName="zipCode"
+          placeholder="xxxxx-xxx"
+          mask="00000-000"
+        />
+      </div>
+      <div class="col-4">
+        <label for="endereco">Endereço da Cobrança</label>
+        <input
+          id="endereco"
+          type="text"
+          class="form-control"
+          formControlName="address"
+          placeholder="Ex: Rua Av.Local"
+        />
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-sm">
+        <label for="estado">Estado</label>
+        <select
+          id="estado"
+          class="form-select"
+          formControlName="state"
+          aria-placeholder="UF"
+        >
+          <option disabled selected>Selecione uma UF</option>
+          <option value="AC">Acre</option>
+          <option value="AL">Alagoas</option>
+          <option value="AP">Amapá</option>
+          <option value="AM">Amazonas</option>
+          <option value="BA">Bahia</option>
+          <option value="CE">Ceará</option>
+          <option value="DF">Distrito Federal</option>
+          <option value="ES">Espírito Santo</option>
+          <option value="GO">Goiás</option>
+          <option value="MA">Maranhão</option>
+          <option value="MT">Mato Grosso</option>
+          <option value="MS">Mato Grosso do Sul</option>
+          <option value="MG">Minas Gerais</option>
+          <option value="PA">Pará</option>
+          <option value="PB">Paraíba</option>
+          <option value="PR">Paraná</option>
+          <option value="PE">Pernambuco</option>
+          <option value="PI">Piauí</option>
+          <option value="RJ">Rio de Janeiro</option>
+          <option value="RN">Rio Grande do Norte</option>
+          <option value="RS">Rio Grande do Sul</option>
+          <option value="RO">Rondônia</option>
+          <option value="RR">Roraima</option>
+          <option value="SC">Santa Catarina</option>
+          <option value="SP">São Paulo</option>
+          <option value="SE">Sergipe</option>
+          <option value="TO">Tocantins</option>
+        </select>
+      </div>
+      <div class="col-sm">
+        <label for="cidade">Cidade</label>
+        <input
+          id="cidade"
+          type="text"
+          class="form-control"
+          formControlName="city"
+          placeholder="Digite o nome da cidade"
+        />
+      </div>
+      <div class="col-sm">
+        <label for="bairro">Bairro</label>
+        <input
+          id="bairro"
+          type="text"
+          class="form-control"
+          formControlName="district"
+          placeholder="Digite o nome do bairro"
+        />
+      </div>
+      <div class="col-sm">
+        <label for="emissao">Data da Emissão</label>
+        <input
+          id="emissao"
+          type="text"
+          formControlName="releaseDate"
+          placeholder="Datepicker"
+          class="form-control"
+          bsDatepicker
+          [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }"
+        />
+      </div>
+      <div class="col-sm">
+        <label for="vencimento">Data de vencimento</label>
+        <input
+          id="vencimento"
+          type="text"
+          formControlName="dueDate"
+          placeholder="Datepicker"
+          class="form-control"
+          bsDatepicker
+          [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }"
+        />
+      </div>
+      <div class="col-sm">
+        <label for="desconto">Valor Desconto</label>
+        <input
+          id="desconto"
+          type="text"
+          class="form-control"
+          formControlName="discount"
+          placeholder="Digite o valor"
+          prefix="R$"
+          mask="separator.2"
+          thousandSeparator=","
+        />
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-2">
+        <label for="valor">Valor</label>
+        <input
+          id="valor"
+          type="text"
+          class="form-control"
+          formControlName="amount"
+          placeholder="Digite um valor"
+          prefix="R$"
+          mask="separator.2"
+          thousandSeparator=","
+        />
+      </div>
+      <div class="col-2">
+        <label for="numero">Seu Número</label>
+        <input
+          id="numero"
+          type="text"
+          class="form-control"
+          formControlName="number"
+          placeholder="Digite o seu numero"
+        />
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-10">
+      <h3>Remessa de Títulos para Análise</h3>
+    </div>
+
+    <div class="col-2">
+      <button class="btn btn-success w-100" (click)="onPushSubmit()">
+        Enviar
+      </button>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <table class="table ">
+      <thead>
+        <tr>
+          <th colspan="11">
+           <div class="row justify-content-end">
+            <span class="col-2 border border-2 border-dark-subtle rounded p-3">Valor a enviar: {{calculateTotal()  | currency: 'BRL' }}</span>
+           </div>
+          </th>
+        </tr>
+        <tr>
+          <th scope="col">CNPJ</th>
+          <th scope="col">Nome do sacado</th>
+          <th scope="col">Telefone do sacado</th>
+          <th scope="col">End. da cobrança</th>
+          <th scope="col">Bairro</th>
+          <th scope="col">Cidade</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Seu Número</th>
+          <th scope="col">Data de emissão</th>
+          <th scope="col">Valor face</th>
+          <th scope="col">Valor desconto</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr *ngFor="let financialRelease of financialReleaseList; index as i">
+          <th>{{ financialRelease?.cnpj }}</th>
+          <td>{{ financialRelease?.name }}</td>
+          <td>{{ financialRelease?.phone }}</td>
+          <td>{{ financialRelease?.address }}</td>
+          <td>{{ financialRelease?.district }}</td>
+          <td>{{ financialRelease?.city }}</td>
+          <td>{{ financialRelease?.state }}</td>
+          <td>{{ financialRelease?.number }}</td>
+          <td>{{ financialRelease?.releaseDate | date : "dd/MM/YYYY" }}</td>
+          <td>{{ financialRelease?.amount | currency: 'BRL' }}</td>
+          <td>{{ financialRelease?.discount | currency: 'BRL' }}</td>
+          <td>
+            <div class="button-container">
+              <button class="btn" (click)="removeTitle(i)"><i class="fa-solid fa-trash"></i></button>
+              <button class="btn" (click)="editTitle(financialRelease, i)">
+                <i class="fa-solid fa-pen-to-square"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
